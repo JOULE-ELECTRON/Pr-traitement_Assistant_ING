@@ -269,9 +269,11 @@ elif module == "JFC5":
 
 st.markdown("---")
 st.header("📁 Générer le Fichier Global Jorf")
-st.write("Chargez un ou plusieurs fichiers prétraités JFC (JFC1, JFC2, JFC4, JFC5, etc.), puis cliquez sur le bouton pour générer un fichier global avec un onglet par entité.")
+st.write("Chargez un ou plusieurs fichiers prétraités JLN,JFC1, JFC2, JFC4, JFC5, puis cliquez sur le bouton pour générer un fichier global avec un onglet par entité.")
 
-col_jfc1, col_jfc2, col_jfc4, col_jfc5 = st.columns(4)
+col_jln, col_jfc1, col_jfc2, col_jfc4, col_jfc5 = st.columns(5)
+with col_jln:
+    fichier_jln = st.file_uploader("JLN", type=["xlsx"], key="global_jln")
 with col_jfc1:
     fichier_jfc1 = st.file_uploader("JFC1", type=["xlsx"], key="global_jfc1")
 with col_jfc2:
@@ -282,6 +284,7 @@ with col_jfc5:
     fichier_jfc5 = st.file_uploader("JFC5", type=["xlsx"], key="global_jfc5")
 
 fichiers = {
+    "JLN": fichier_jln,
     "JFC1": fichier_jfc1,
     "JFC2": fichier_jfc2,
     "JFC4": fichier_jfc4,
