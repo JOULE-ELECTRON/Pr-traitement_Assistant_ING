@@ -17,7 +17,10 @@ class JFC5Processor:
         self.ws_source2 = self.wb_source2.active
         self.source2_max_row = self.ws_source2.max_row
         self.wb_cible = openpyxl.load_workbook(chemin_cible)
-        self.ws_cible = self.wb_cible.active
+        try:
+            self.ws_cible = self.wb_cible['JFC5']
+        except KeyError:
+            raise ValueError("La feuille 'JFC5' n'existe pas dans le fichier cible.")
         # Mapping S1 (1-based)
         self.date_col_source1 = 2
         self.date_col_cible = 1
