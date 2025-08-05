@@ -325,9 +325,15 @@ if any(fichiers.values()):
             for entite, fichier in fichiers.items():
                 if fichier:
                     wb_entite = openpyxl.load_workbook(fichier, data_only=False)
-                    ws_entite = wb_entite.active
-                    ws_global = wb_global.create_sheet(title=entite)
-                    copy_worksheet(ws_entite, ws_global)
+                    if entite == "JLN":
+                        for sheet_name in wb_entite.sheetnames:
+                            ws_entite = wb_entite[sheet_name]
+                            ws_global = wb_global.create_sheet(title=sheet_name)
+                            copy_worksheet(ws_entite, ws_global)
+                    else:
+                        ws_entite = wb_entite.active
+                        ws_global = wb_global.create_sheet(title=entite)
+                        copy_worksheet(ws_entite, ws_global)
             output = BytesIO()
             wb_global.save(output)
             output.seek(0)
