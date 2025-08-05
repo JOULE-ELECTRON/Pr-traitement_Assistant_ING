@@ -86,7 +86,7 @@ if module == "MP1":
                                     st.download_button(
                                         label="Télécharger le fichier prétraité",
                                         data=f,
-                                        file_name="Fichier Prétraité MP1.xlsx",
+                                        file_name="Dashboard performance Jorf.xlsx",
                                         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                                     )
                             else:
@@ -131,7 +131,7 @@ elif module == "JLN":
                                     st.download_button(
                                         label="Télécharger le fichier prétraité",
                                         data=f,
-                                        file_name="Dashboard performance Jorf.xlsm",
+                                        file_name="Dashboard performance Jorf.xlsx",
                                         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                                     )
                             else:
@@ -163,7 +163,7 @@ elif module == "JFC1":
                                     st.download_button(
                                         label="Télécharger le fichier prétraité",
                                         data=f,
-                                        file_name="Dashboard performance Jorf.xlsm",
+                                        file_name="Dashboard performance Jorf.xlsx",
                                         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                                     )
                             else:
@@ -195,7 +195,7 @@ elif module == "JFC2":
                                 st.download_button(
                                     label="Télécharger le fichier prétraité",
                                     data=f,
-                                    file_name="Dashboard performance Jorf.xlsm",
+                                    file_name="Dashboard performance Jorf.xlsx",
                                     mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                                 )
                         except Exception as e:
@@ -225,7 +225,7 @@ elif module == "JFC4":
                                 st.download_button(
                                     label="Télécharger le fichier prétraité",
                                     data=f,
-                                    file_name="Dashboard performance Jorf.xlsm",
+                                    file_name="Dashboard performance Jorf.xlsx",
                                     mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                                 )
                         except Exception as e:
@@ -259,7 +259,7 @@ elif module == "JFC5":
                                     st.download_button(
                                         label="Télécharger le fichier prétraité",
                                         data=f,
-                                        file_name="Dashboard performance Jorf.xlsm",
+                                        file_name="Dashboard performance Jorf.xlsx",
                                         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                                     )
                             else:
