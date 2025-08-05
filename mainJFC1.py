@@ -15,7 +15,10 @@ class PretraitementProcessor:
         self.ws_source = self.wb_source.active
         self.source_max_row = self.ws_source.max_row
         self.wb_cible = openpyxl.load_workbook(chemin_cible)
-        self.ws_cible = self.wb_cible.active
+        try:
+            self.ws_cible = self.wb_cible['JFC1']
+        except KeyError:
+            raise ValueError("La feuille 'JFC1' n'existe pas dans le fichier cible.")
         # Mapping des colonnes (1-based)
         self.date_col_source = 4
         self.date_col_cible = 1
