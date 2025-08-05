@@ -102,10 +102,10 @@ if module == "MP1":
 elif module == "JLN":
     st.markdown("## 🟢 Prétraitement JLN")
     st.info("Veuillez charger les trois fichiers source (Production, Arrêts, Titres) et le fichier cible JLN.")
-    fichier_source1 = st.file_uploader("Fichier source 1 (Production)", type=["xlsx"], key="src1_jln")
-    fichier_source2 = st.file_uploader("Fichier source 2 (Arrêts)", type=["xlsx"], key="src2_jln")
-    fichier_source3 = st.file_uploader("Fichier source 3 (Titres)", type=["xlsx"], key="src3_jln")
-    fichier_cible = st.file_uploader("Fichier cible JLN", type=["xlsx"], key="cible_jln")
+    fichier_source1 = st.file_uploader("Fichier source 1 (Production)", type=["xlsx", "xlsm"], key="src1_jln")
+    fichier_source2 = st.file_uploader("Fichier source 2 (Arrêts)", type=["xlsx", "xlsm"], key="src2_jln")
+    fichier_source3 = st.file_uploader("Fichier source 3 (Titres)", type=["xlsx", "xlsm"], key="src3_jln")
+    fichier_cible = st.file_uploader("Fichier cible JLN", type=["xlsx", "xlsm"], key="cible_jln")
     if fichier_source1 and fichier_source2 and fichier_source3 and fichier_cible:
         col1, col2, col3 = st.columns([1,2,1])
         with col2:
@@ -142,8 +142,8 @@ elif module == "JLN":
 elif module == "JFC1":
     st.markdown("## 🟡 Prétraitement JFC1")
     st.info("Veuillez charger le fichier source et le fichier cible JFC1.")
-    fichier_source = st.file_uploader("Fichier source JFC1", type=["xlsx"], key="src_jfc1")
-    fichier_cible = st.file_uploader("Fichier cible JFC1", type=["xlsx"], key="cible_jfc1")
+    fichier_source = st.file_uploader("Fichier source JFC1", type=["xlsx", "xlsm"], key="src_jfc1")
+    fichier_cible = st.file_uploader("Fichier cible JFC1", type=["xlsx", "xlsm"], key="cible_jfc1")
     if fichier_source and fichier_cible:
         col1, col2, col3 = st.columns([1,2,1])
         with col2:
@@ -174,8 +174,8 @@ elif module == "JFC1":
 elif module == "JFC2":
     st.markdown("## 🟣 Prétraitement JFC2")
     st.info("Veuillez charger le fichier source et le fichier cible JFC2.")
-    fichier_source = st.file_uploader("Fichier source JFC2", type=["xlsx"], key="src_jfc2")
-    fichier_cible = st.file_uploader("Fichier cible JFC2", type=["xlsx"], key="cible_jfc2")
+    fichier_source = st.file_uploader("Fichier source JFC2", type=["xlsx", "xlsm"], key="src_jfc2")
+    fichier_cible = st.file_uploader("Fichier cible JFC2", type=["xlsx", "xlsm"], key="cible_jfc2")
     if fichier_source and fichier_cible:
         col1, col2, col3 = st.columns([1,2,1])
         with col2:
@@ -204,8 +204,8 @@ elif module == "JFC2":
 elif module == "JFC4":
     st.markdown("## 🟤 Prétraitement JFC4")
     st.info("Veuillez charger le fichier source et le fichier cible JFC4.")
-    fichier_source = st.file_uploader("Fichier source JFC4", type=["xlsx"], key="src_jfc4")
-    fichier_cible = st.file_uploader("Fichier cible JFC4", type=["xlsx"], key="cible_jfc4")
+    fichier_source = st.file_uploader("Fichier source JFC4", type=["xlsx", "xlsm"], key="src_jfc4")
+    fichier_cible = st.file_uploader("Fichier cible JFC4", type=["xlsx", "xlsm"], key="cible_jfc4")
     if fichier_source and fichier_cible:
         col1, col2, col3 = st.columns([1,2,1])
         with col2:
@@ -234,9 +234,9 @@ elif module == "JFC4":
 elif module == "JFC5":
     st.markdown("## 🟠 Prétraitement JFC5")
     st.info("Veuillez charger les deux fichiers source et le fichier cible JFC5.")
-    fichier_source1 = st.file_uploader("Fichier source 1 JFC5", type=["xlsx"], key="src1_jfc5")
-    fichier_source2 = st.file_uploader("Fichier source 2 JFC5", type=["xlsx"], key="src2_jfc5")
-    fichier_cible = st.file_uploader("Fichier cible JFC5", type=["xlsx"], key="cible_jfc5")
+    fichier_source1 = st.file_uploader("Fichier source 1 JFC5", type=["xlsx", "xlsm"], key="src1_jfc5")
+    fichier_source2 = st.file_uploader("Fichier source 2 JFC5", type=["xlsx", "xlsm"], key="src2_jfc5")
+    fichier_cible = st.file_uploader("Fichier cible JFC5", type=["xlsx", "xlsm"], key="cible_jfc5")
     if fichier_source1 and fichier_source2 and fichier_cible:
         col1, col2, col3 = st.columns([1,2,1])
         with col2:
@@ -273,15 +273,15 @@ st.write("Chargez un ou plusieurs fichiers prétraités JLN,JFC1, JFC2, JFC4, JF
 
 col_jln, col_jfc1, col_jfc2, col_jfc4, col_jfc5 = st.columns(5)
 with col_jln:
-    fichier_jln = st.file_uploader("JLN", type=["xlsx"], key="global_jln")
+    fichier_jln = st.file_uploader("JLN", type=["xlsx", "xlsm"], key="global_jln")
 with col_jfc1:
-    fichier_jfc1 = st.file_uploader("JFC1", type=["xlsx"], key="global_jfc1")
+    fichier_jfc1 = st.file_uploader("JFC1", type=["xlsx", "xlsm"], key="global_jfc1")
 with col_jfc2:
-    fichier_jfc2 = st.file_uploader("JFC2", type=["xlsx"], key="global_jfc2")
+    fichier_jfc2 = st.file_uploader("JFC2", type=["xlsx", "xlsm"], key="global_jfc2")
 with col_jfc4:
-    fichier_jfc4 = st.file_uploader("JFC4", type=["xlsx"], key="global_jfc4")
+    fichier_jfc4 = st.file_uploader("JFC4", type=["xlsx", "xlsm"], key="global_jfc4")
 with col_jfc5:
-    fichier_jfc5 = st.file_uploader("JFC5", type=["xlsx"], key="global_jfc5")
+    fichier_jfc5 = st.file_uploader("JFC5", type=["xlsx", "xlsm"], key="global_jfc5")
 
 fichiers = {
     "JLN": fichier_jln,
