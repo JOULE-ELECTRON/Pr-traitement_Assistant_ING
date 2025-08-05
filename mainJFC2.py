@@ -35,14 +35,17 @@ class JFC2SourceReader:
 
 class JFC2CibleWriter:
     def __init__(self, chemin_cible):
-        self.wb = openpyxl.load_workbook(chemin_cible)
-        self.ws = self.wb.active
+        self.wb_cible = openpyxl.load_workbook(chemin_cible)
+        try:
+            self.ws_cible = self.wb_cible['JFC2']
+        except KeyError:
+            raise ValueError("La feuille 'JFC2' n'existe pas dans le fichier cible.")
 
     def get_existing_dates(self):
         # Les dates sont en colonne 1, à partir de la ligne 2
         dates = set()
-        for row in range(2, self.ws.max_row + 1):
-            val = self.ws.cell(row=row, column=1).value
+        for row in range(2, self.ws_cible.max_row + 1):
+            val = self.ws_cible.cell(row=row, column=1).value
             if val:
                 if isinstance(val, datetime):
                     dates.add(val.strftime("%d/%m/%Y"))
@@ -51,10 +54,10 @@ class JFC2CibleWriter:
         return dates
 
     def find_first_empty_row(self):
-        for row in range(2, self.ws.max_row + 2):
-            if not self.ws.cell(row=row, column=1).value:
+        for row in range(2, self.ws_cible.max_row + 2):
+            if not self.ws_cible.cell(row=row, column=1).value:
                 return row
-        return self.ws.max_row + 1
+        return self.ws_cible.max_row + 1
 
     def write_row(self, row, date, production, arrets, titres):
         # Colonnes à remplir : 1 (date), 6 (prod), 7-12 (arrêts), 13-14 (titres)
@@ -81,12 +84,12 @@ class JFC2CibleWriter:
         values.append((13, percent_acp29))
         values.append((14, percent_acp54))
         for col, val in values:
-            cell = self.ws.cell(row=row, column=col)
+            cell = self.ws_cible.cell(row=row, column=col)
             cell.value = val
             cell.alignment = Alignment(horizontal='center', vertical='center')
 
     def save(self, chemin_sortie):
-        self.wb.save(chemin_sortie)
+        self.wb_cible.save(chemin_sortie)
 
 def traiter_jfc2(chemin_source, chemin_cible, chemin_sortie):
     reader = JFC2SourceReader(chemin_source)
